@@ -1,5 +1,11 @@
+import requests
+
+url = "localhost:8000/animes/"
+
 def obtener_animes():
-    pass
+    respuesta = requests.get(f'{url}Obtener_Animes')
+    respuesta.raise_for_status()
+    return respuesta.json()
 
 def obtener_descripcion():
     pass
