@@ -9,7 +9,6 @@ Para este proyecto, necesitarás instalar las siguientes librerías:
 - `uvicorn`
 - `fastapi`
 - `requests`
-- `python-jose`
 
 ## Crear y activar un entorno virtual
 
@@ -41,7 +40,7 @@ Para este proyecto, necesitarás instalar las siguientes librerías:
 Una vez que el entorno virtual esté activado, puedes instalar las librerías necesarias con el siguiente comando:
 
 ```bash
-pip install uvicorn fastapi requests python-jose
+pip install uvicorn fastapi requests
 ```
 ## Ejecución del Servidor API
 
