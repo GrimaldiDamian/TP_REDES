@@ -1,6 +1,6 @@
 # Proyecto de Redes de Datos - Trabajo Práctico
 
-Este proyecto es un trabajo práctico de la universidad cuyo objetivo es desarrollar un servidor API y una interfaz para el cliente (en mi caso, implementada con Pygame). Dependiendo del tipo de cuenta del usuario (admin o user), se le presenta un menú personalizado. Este proyecto se enfoca en desarrollar y demostrar conocimientos en el manejo de APIs.
+Este proyecto es un trabajo práctico de la universidad cuyo objetivo es desarrollar un servidor API y una interfaz para el cliente. Este proyecto se enfoca en desarrollar y demostrar conocimientos en el manejo de APIs.
 
 ## Librerías necesarias
 
@@ -41,7 +41,7 @@ Para este proyecto, necesitarás instalar las siguientes librerías:
 Una vez que el entorno virtual esté activado, puedes instalar las librerías necesarias con el siguiente comando:
 
 ```bash
-pip install pygame uvicorn fastapi requests python-jose
+pip install uvicorn fastapi requests python-jose
 ```
 ## Ejecución del Servidor API
 
@@ -64,12 +64,13 @@ Para ejecutar la interfaz del cliente, sigue estos pasos:
 2. Asegúrate de que el entorno virtual esté activado.
 3. Ejecuta el archivo `main.py` con el siguiente comando:
     ```bash
-    python main.py
+    uvicorn servidor:app --host 0.0.0.0
     ```
 
 ## Notas Importantes
 
 - El servidor API y el cliente deben ejecutarse en computadoras diferentes dentro de la misma red para este trabajo práctico. Sin embargo, también es posible ejecutarlos en la misma computadora para pruebas.
 - Asegúrate de que ambas computadoras estén conectadas a la misma red y que no haya restricciones de firewall que impidan la comunicación entre ellas.
+- En el caso de que se este realizando en computadoras diferentes, reemplazar en el archivo main del cliente, la url con la ip de la computadora en donde se este ejecutando el servidor.
 
 ¡Y eso es todo! Ahora estás listo para comenzar a trabajar en tu proyecto.
