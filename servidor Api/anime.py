@@ -153,6 +153,31 @@ def actualizar_nombre(name: str, new_name : str) -> str:
     """
     return puts("name",name,new_name)
 
+@anime_router.post("/Agregar anime")
+def agregar_anime(name, descrition, Rating, episode, categorie, studio) -> str:
+    """
+    Agrega un anime
+    Args:
+        name (str): Nombre del anime
+        descrition (str): Descripcion del anime
+        Rating (float): Clasificacion del anime
+        episode (int): Episodios del anime
+        categorie (str): Categoria del anime
+        studio (str): Estudio del anime
+    Returns:
+        str: Mensaje de confirmacion
+    """
+    anime.append({
+        "name": name,
+        "description": descrition,
+        "Rating": Rating,
+        "episode": episode,
+        "categorie": categorie,
+        "studio": studio
+    })
+    guardar_archivo(nombre_archivo,anime)
+    return f"Se agrego correctamente"
+
 @anime_router.delete("/eliminar anime")
 def delete(name : str) -> str:
     """

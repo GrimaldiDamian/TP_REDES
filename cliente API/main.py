@@ -6,7 +6,7 @@ def obtener_animes() -> dict:
     """
     Función que obtiene los nombres de los animes
     Returns:
-        [json]: [json con los nombres de los animes]
+        dict: Devuelve los nombres de los animes
     """
     try:
         respuesta = requests.get(f'{url}Obtener_Animes')
@@ -134,8 +134,35 @@ def actualizar_nombre() -> str:
     new_name = input("Ingrese nuevo nombre: ")
     return puts(name, "nombre", new_name)
 
-def eliminar_anime():
-    pass
+def agregar_anime() -> str:
+    """
+    Función para agregar un anime nuevo
+    Returns:
+        str : Devuelve la respuesta de la inserción
+    """
+    try:
+        name = input("Ingrese nombre del anime: ")
+        descrition = input("Ingrese descripcion: ")
+        Rating = float(input("Ingrese rating: "))
+        episode = int(input("Ingrese cantidad de episodios: "))
+        categorie = input("Ingrese categoria: ")
+        studio = input("Ingrese estudio: ")
+        respuesta = requests.post(f'{url}agregar anime', params={'name': name, 'descrition': descrition, 'Rating': Rating, 'categorie': categorie, 'studio': studio, 'episode': episode})
+        respuesta.raise_for_status()
+        return respuesta.json()
+    except requests.exceptions.RequestException as e:
+        return e
+
+def eliminar_anime() -> str:
+    """
+    """
+    try:
+        name = input("Ingrese nombre del anime: ")
+        respuesta = requests.delete(f'{url}eliminar anime', params={'name': name})
+        respuesta.raise_for_status()
+        return respuesta.json()
+    except requests.exceptions.RequestException as e:
+        return e
 
 def menu():
     """
@@ -143,7 +170,7 @@ def menu():
     """
     try:
         while True:
-            op = int(input("1. Obtener Animes\n2. Obtener descripcion\n3. Obtener clasificacion\n4. Obtener categoria\n5. Obtener estudio\n6. Obtener episodios\n7. Actualizar episodios\n8. Actualizar descripcion\n9Actualizar rating\n10. Actualizar nombre\n12. Eliminar anime\n12. Salir\nIngrese opcion: "))
+            op = int(input("1. Obtener Animes\n2. Obtener descripcion\n3. Obtener clasificacion\n4. Obtener categoria\n5. Obtener estudio\n6. Obtener episodios\n7. Actualizar episodios\n8. Actualizar descripcion\n9. Actualizar rating\n10. Actualizar nombre\n11. Agregar anime\n12. Eliminar anime\n13. Salir\nIngrese opcion: "))
             
             if op == 1:
                 print(obtener_animes())
@@ -165,9 +192,11 @@ def menu():
                 print(actualizar_rating())
             elif op == 10:
                 print(actualizar_nombre())
-            elif op == 11:
-                print(eliminar_anime())
+            elif op ==11:
+                print(agregar_anime())
             elif op == 12:
+                print(eliminar_anime())
+            elif op == 13:
                 break
     except ValueError:
         print("Ingrese un valor valido")
