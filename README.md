@@ -50,7 +50,7 @@ Para ejecutar el servidor API, sigue estos pasos:
 2. Asegúrate de que el entorno virtual esté activado.
 3. Ejecuta el siguiente comando para iniciar el servidor con Uvicorn:
     ```bash
-    uvicorn servidor:app --reload
+    uvicorn servidor:app --host 0.0.0.0
     ```
 
 El servidor API estará disponible en `http://localhost:8000`.
@@ -63,7 +63,7 @@ Para ejecutar la interfaz del cliente, sigue estos pasos:
 2. Asegúrate de que el entorno virtual esté activado.
 3. Ejecuta el archivo `main.py` con el siguiente comando:
     ```bash
-    uvicorn servidor:app --host 0.0.0.0
+    python cliente.py
     ```
 
 ## Notas Importantes
