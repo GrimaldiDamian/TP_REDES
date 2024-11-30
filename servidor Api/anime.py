@@ -117,13 +117,25 @@ def actualizar_episodios(name: str,episode: int) -> str:
     """
     return puts("episode",name,episode)
 
-@anime_router.put("/actualizar descripsion")
-def actualizar_episodios(name: str,Rating: float) -> str:
+@anime_router.put("/actualizar descripcion")
+def actualizar_descripcion(name: str,description: str) -> str:
     """
     Actualiza la descripcion de un anime
     Args:
         name (str): Nombre del anime
-        Rating (float): Nueva descripcion
+        description (str): Nueva descripcion
+    Returns:
+        str: Mensaje de confirmacion
+    """
+    return puts("description",name,description)
+
+@anime_router.put("/actualizar rating")
+def actualizar_rating(name: str,Rating: float) -> str:
+    """
+    Actualiza el rating de un anime
+    Args:
+        name (str): Nombre del anime
+        Rating (float): Nueva clasificacion
     Returns:
         str: Mensaje de confirmacion
     """
