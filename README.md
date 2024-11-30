@@ -9,7 +9,6 @@ Para este proyecto, necesitarás instalar las siguientes librerías:
 - `uvicorn`
 - `fastapi`
 - `requests`
-- `python-jose`
 
 ## Crear y activar un entorno virtual
 
@@ -41,7 +40,7 @@ Para este proyecto, necesitarás instalar las siguientes librerías:
 Una vez que el entorno virtual esté activado, puedes instalar las librerías necesarias con el siguiente comando:
 
 ```bash
-pip install uvicorn fastapi requests python-jose
+pip install uvicorn fastapi requests
 ```
 ## Ejecución del Servidor API
 
@@ -51,7 +50,7 @@ Para ejecutar el servidor API, sigue estos pasos:
 2. Asegúrate de que el entorno virtual esté activado.
 3. Ejecuta el siguiente comando para iniciar el servidor con Uvicorn:
     ```bash
-    uvicorn servidor:app --reload
+    uvicorn servidor:app --host 0.0.0.0
     ```
 
 El servidor API estará disponible en `http://localhost:8000`.
@@ -64,7 +63,7 @@ Para ejecutar la interfaz del cliente, sigue estos pasos:
 2. Asegúrate de que el entorno virtual esté activado.
 3. Ejecuta el archivo `main.py` con el siguiente comando:
     ```bash
-    uvicorn servidor:app --host 0.0.0.0
+    python cliente.py
     ```
 
 ## Notas Importantes
