@@ -105,8 +105,8 @@ def puts(columna :str,name :str,value : str | int) -> str:
             guardar_archivo(nombre_archivo,anime)
     raise HTTPException(status_code=404, detail="Anime no encontrado")
 
-@anime_router.put("/actualizar episodios")
-def actualizar_episodios(name: str,episode: int) -> str:
+@anime_router.put("/actualizar episode")
+def actualizar_episode(name: str,episode: int) -> str:
     """
     Actualiza los episodios de un anime
     Args:
@@ -117,8 +117,8 @@ def actualizar_episodios(name: str,episode: int) -> str:
     """
     return puts("episode",name,episode)
 
-@anime_router.put("/actualizar descripcion")
-def actualizar_descripcion(name: str,description: str) -> str:
+@anime_router.put("/actualizar description")
+def actualizar_description(name: str,description: str) -> str:
     """
     Actualiza la descripcion de un anime
     Args:
@@ -129,8 +129,8 @@ def actualizar_descripcion(name: str,description: str) -> str:
     """
     return puts("description",name,description)
 
-@anime_router.put("/actualizar rating")
-def actualizar_rating(name: str,Rating: float) -> str:
+@anime_router.put("/actualizar Rating")
+def actualizar_Rating(name: str,Rating: float) -> str:
     """
     Actualiza el rating de un anime
     Args:
@@ -141,8 +141,8 @@ def actualizar_rating(name: str,Rating: float) -> str:
     """
     return puts("Rating",name,str(Rating))
 
-@anime_router.put("/actualizar nombre")
-def actualizar_nombre(name: str, new_name : str) -> str:
+@anime_router.put("/actualizar name")
+def actualizar_name(name: str, new_name : str) -> str:
     """
     Actualiza el nombre de un anime
     Args:
@@ -153,7 +153,7 @@ def actualizar_nombre(name: str, new_name : str) -> str:
     """
     return puts("name",name,new_name)
 
-@anime_router.post("/Agregar anime")
+@anime_router.post("/Agregar_anime")
 def agregar_anime(name, descrition, Rating, episode, categorie, studio) -> str:
     """
     Agrega un anime
@@ -178,7 +178,7 @@ def agregar_anime(name, descrition, Rating, episode, categorie, studio) -> str:
     guardar_archivo(nombre_archivo,anime)
     return f"Se agrego correctamente"
 
-@anime_router.delete("/eliminar anime")
+@anime_router.delete("/eliminar_anime")
 def delete(name : str) -> str:
     """
     Elimina un anime

@@ -102,7 +102,7 @@ def actualizar_episodios() -> str:
     
     name = input("Ingrese nombre del anime: ")
     episode = int(input("Ingrese cantidad de episodios: "))
-    return puts(name, "episodios", episode)
+    return puts(name, "episode", episode)
 
 def actualizar_descripcion() -> str:
     """
@@ -111,8 +111,8 @@ def actualizar_descripcion() -> str:
         str : Devuelve la respuesta de la actualización de la descripción
     """
     name = input("Ingrese nombre del anime: ")
-    descripcion = input("Ingrese descripcion: ")
-    return puts(name, "descripcion", descripcion)
+    description = input("Ingrese descripcion: ")
+    return puts(name, "description", description)
 
 def actualizar_rating() -> str:
     """
@@ -122,7 +122,7 @@ def actualizar_rating() -> str:
     """
     name = input("Ingrese nombre del anime: ")
     rating = float(input("Ingrese rating: "))
-    return puts(name, "rating", rating)
+    return puts(name, "Rating", rating)
 
 def actualizar_nombre() -> str:
     """
@@ -132,7 +132,7 @@ def actualizar_nombre() -> str:
     """
     name = input("Ingrese nombre del anime: ")
     new_name = input("Ingrese nuevo nombre: ")
-    return puts(name, "nombre", new_name)
+    return puts(name, "name", new_name)
 
 def agregar_anime() -> str:
     """
@@ -147,7 +147,7 @@ def agregar_anime() -> str:
         episode = int(input("Ingrese cantidad de episodios: "))
         categorie = input("Ingrese categoria: ")
         studio = input("Ingrese estudio: ")
-        respuesta = requests.post(f'{url}agregar anime', params={'name': name, 'descrition': descrition, 'Rating': Rating, 'categorie': categorie, 'studio': studio, 'episode': episode})
+        respuesta = requests.post(f'{url}Agregar_anime', params={'name': name, 'descrition': descrition, 'Rating': Rating, 'episode': episode, 'categorie': categorie, 'studio': studio})
         respuesta.raise_for_status()
         return respuesta.json()
     except requests.exceptions.RequestException as e:
@@ -155,10 +155,13 @@ def agregar_anime() -> str:
 
 def eliminar_anime() -> str:
     """
+    Función para eliminar un anime
+    Returns:
+        str : Devuelve la respuesta de la eliminación
     """
     try:
         name = input("Ingrese nombre del anime: ")
-        respuesta = requests.delete(f'{url}eliminar anime', params={'name': name})
+        respuesta = requests.delete(f'{url}eliminar_anime', params={'name': name})
         respuesta.raise_for_status()
         return respuesta.json()
     except requests.exceptions.RequestException as e:
